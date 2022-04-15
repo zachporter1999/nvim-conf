@@ -26,10 +26,10 @@ packer.startup(function()
 	-- Org Mode
 	use {'nvim-treesitter/nvim-treesitter'}
 	use 'vimwiki/vimwiki'
---  	use {'nvim-orgmode/orgmode', config = function()
--- 		        require('orgmode').setup{}
--- 		end
--- 	}
+  	use {'nvim-orgmode/orgmode', config = function()
+ 		        require('orgmode').setup{}
+ 		end
+ 	}
 
 	-- Floaterm
 	use 'voldikss/vim-floaterm'
@@ -45,8 +45,8 @@ packer.startup(function()
 
 
 	-- Theme
-	use 'NLKNguyen/papercolor-theme'
-	use 'marko-cerovac/material.nvim'
+	-- Using Packer
+	use 'navarasu/onedark.nvim'
 
 	use 'vim-airline/vim-airline'
 	use 'vim-airline/vim-airline-themes'
@@ -55,6 +55,7 @@ packer.startup(function()
 	--	requires = {'kyazdani42/nvim-web-devicons', opt = true}
 	--}
 
+	-- use {'junegunn/fzf'}
 	use {'nvim-telescope/telescope.nvim',requires = {{'nvim-lua/plenary.nvim'}}}
 
 	use {

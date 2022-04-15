@@ -11,9 +11,8 @@
 -- Colorscheme
 -- ====================
 vim.o.termguicolors = true
-vim.cmd [[silent! colorscheme PaperColor]]
--- vim.cmd 'colorscheme material'
-vim.g.airline_theme='base16_material_darker'
+vim.cmd [[silent! colorscheme onedark]]
+vim.g.airline_theme='onedark'
 
 -- vim.g.material_style = "darker"
 
@@ -27,7 +26,7 @@ vim.cmd [[silent! set nu]]
 -- ====================
 vim.g.mapleader = ' '
 
-vim.api.nvim_set_keymap('n', "<leader>n", ":enew | edit ", {noremap = true})
-vim.api.nvim_set_keymap('n', "<leader>e", ":!pandoc -o ", {noremap = true})
-vim.api.nvim_set_keymap('t', "<esc><esc>", "<C-\\><C-n>", {noremap = true})
-
+vim.api.nvim_set_keymap('n', "<leader>n",  ":enew | edit ", {noremap = true})
+vim.api.nvim_set_keymap('n', "<leader>e",  ":!pandoc -o ",  {noremap = true})
+vim.api.nvim_set_keymap('t', "<esc><esc>", "<C-\\><C-n>",   {noremap = true})
+vim.api.nvim_set_keymap('n', "<leader>cd", ":cd %:p:h<cr>", {noremap = true})
