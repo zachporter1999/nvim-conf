@@ -23,26 +23,18 @@ packer.startup(function()
 	-- Startify
 	use 'mhinz/vim-startify'
 
-	-- Org Mode
-	use {'nvim-treesitter/nvim-treesitter'}
+	-- Note Taking
+	-- TODO Remove in favour of emacs
 	use 'vimwiki/vimwiki'
-  	use {'nvim-orgmode/orgmode', config = function()
- 		        require('orgmode').setup{}
- 		end
- 	}
-
-	-- Floaterm
-	use 'voldikss/vim-floaterm'
 
 	-- lsp
 	-- use 'neovim/nvim-lspconfig'
 	-- use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile'}
 	use 'dense-analysis/ale'
+	-- TODO Remove plantuml in favour of emacs
 	use 'weirongxu/plantuml-previewer.vim'
 	use 'aklt/plantuml-syntax'
 	use 'tyru/open-browser.vim'
-	use {'sakhnik/nvim-gdb',  run = './install.sh' }
-
 
 	-- Theme
 	-- Using Packer
@@ -55,7 +47,6 @@ packer.startup(function()
 	--	requires = {'kyazdani42/nvim-web-devicons', opt = true}
 	--}
 
-	-- use {'junegunn/fzf'}
 	use {'nvim-telescope/telescope.nvim',requires = {{'nvim-lua/plenary.nvim'}}}
 
 	use {
