@@ -10,8 +10,8 @@
 -- ====================
 -- Colorscheme
 -- ====================
-vim.o.termguicolors = true
-vim.cmd [[silent! colorscheme onedark]]
+vim.o.termguicolors = false
+vim.cmd [[silent! colorscheme torte]]
 vim.g.airline_theme='onedark'
 
 -- vim.g.material_style = "darker"
