@@ -37,9 +37,6 @@ packer.startup(function()
 	use 'tyru/open-browser.vim'
 
 	-- Theme
-	-- Using Packer
-	use 'navarasu/onedark.nvim'
-
 	use 'vim-airline/vim-airline'
 	use 'vim-airline/vim-airline-themes'
 	-- use {
