@@ -28,9 +28,16 @@ packer.startup(function()
 	use 'vimwiki/vimwiki'
 
 	-- lsp
-	-- use 'neovim/nvim-lspconfig'
+	use 'neovim/nvim-lspconfig'
+	use 'hrsh7th/cmp-nvim-lsp'
+	use 'hrsh7th/cmp-buffer'
+	use 'hrsh7th/cmp-path'
+	use 'hrsh7th/cmp-cmdline'
+	use 'hrsh7th/nvim-cmp'
+
+	use 'neovim/nvim-lspconfig'
+	use 'williamboman/nvim-lsp-installer'
 	-- use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile'}
-	use 'dense-analysis/ale'
 	-- TODO Remove plantuml in favour of emacs
 	use 'weirongxu/plantuml-previewer.vim'
 	use 'aklt/plantuml-syntax'
@@ -56,3 +63,4 @@ packer.startup(function()
 		end
 	}
 end)
+
