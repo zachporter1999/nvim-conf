@@ -10,6 +10,21 @@
 -- ====================
 -- Colorscheme
 -- ====================
+local wk = require("which-key")
+wk.register({
+	t = {
+		name = "Terminal",
+		s = {"Open in spit"},
+		t = {"Open in new tab"},
+		v = {"Open in vertical split"},
+	},
+	n = {"Open file in new buffer"},
+}, { prefix = "<leader>"})
+
+
+-- ====================
+-- Colorscheme
+-- ====================
 vim.o.termguicolors = false
 vim.cmd [[silent! colorscheme torte]]
 vim.g.airline_theme='onedark'
@@ -19,6 +34,7 @@ vim.g.airline_theme='onedark'
 -- ====================
 -- line numbers
 -- ====================
+vim.cmd [[silent! set rnu]]
 vim.cmd [[silent! set nu]]
 
 -- ====================
