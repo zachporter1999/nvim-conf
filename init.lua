@@ -16,8 +16,6 @@ require('plugins')
 -- General settings
 -- --------------------
 require('conf/init')
---require('conf/settings')
---require('conf/helpers')
 
 -- --------------------
 -- Plugin settings
