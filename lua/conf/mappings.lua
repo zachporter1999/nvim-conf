@@ -12,7 +12,7 @@ vim.g.mapleader = ' '
 vim.api.nvim_set_keymap(
 	'n',
 	"<leader>nb",
-	":Lexplore<cr>",
+	":Explore<cr>",
 	{noremap = true}
 )
 vim.api.nvim_set_keymap(
