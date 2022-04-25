@@ -56,10 +56,7 @@ packer.startup(function()
 	use {
 		'folke/which-key.nvim',
 		config = function()
-			require("which-key").setup {
-				-- Your config
-				-- TODO add configs
-			}
+			require("which-key").setup {}
 		end
 	}
 end)
