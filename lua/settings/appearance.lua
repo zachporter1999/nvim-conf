@@ -3,7 +3,7 @@
 -- by: Zach Porter
 --]]
 
-require('conf/helpers')
+require('extra/helpers')
 
 -- TODO Switch to lualine
 -- require'lualine'.setup()

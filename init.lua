@@ -37,18 +37,17 @@ plugin_list =  {
 	'vim-airline/vim-airline',
 	'vim-airline/vim-airline-themes',
 }
+
 -- --------------------
 -- Packer Plugin Manager
 -- --------------------
-require('plugins')
+require('plugin-install')
 
--- --------------------
--- General settings
--- --------------------
-require('conf/init')
+require('settings/general')
+require('settings/config-manager')
+require('settings/file-explorer')
+require('settings/terminal')
+require('settings/appearance')
 
--- --------------------
--- Plugin settings
--- --------------------
-require('conf/plugins/startify')
-require('conf/plugins/telescope')
+require('plugins/startify')
+require('plugins/telescope')

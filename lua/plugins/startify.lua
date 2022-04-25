@@ -20,8 +20,7 @@ vim.g.startify_lists = {
 
 vim.g.startify_bookmarks = {
 	{
-		c = '~/.config/nvim/init.lua'
+		c = vim.fn.stdpath('config')..'/init.lua'
 	},
 }
 
-vim.api.nvim_set_keymap('n', '<leader>h', ':Startify<cr>', {noremap = true})
