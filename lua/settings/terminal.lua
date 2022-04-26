@@ -3,6 +3,11 @@
 -- by: Zach Porter
 --]]
 
+-- Windows Specific
+if not vim.fn.has('unix') then
+	vim.cmd 'set shell=powershell'
+end
+
 wk.register({
 	t = {
 		name = "Terminal",

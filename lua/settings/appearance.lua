@@ -18,10 +18,3 @@ vim.o.termguicolors = false
 vim.cmd [[silent! colorscheme torte]]
 vim.g.airline_theme='onedark'
 
--- ====================
--- Windows Specific
--- ====================
-local osType = getOSType()
-if (osType == 'win32') then
-	vim.cmd 'set shell=powershell'
-end
