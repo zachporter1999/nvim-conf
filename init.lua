@@ -3,11 +3,8 @@
 -- by: Zach Porter
 --]]
 
--- TODO Update Doc
--- ====================
--- Required files
--- ====================
-
+-- When this list is updated restart nvim to install/clean plugins
+-- TODO Make loading of plugins dynamic
 plugin_list =  {
 	-- Packer
 	'wbthomason/packer.nvim',
@@ -28,6 +25,8 @@ plugin_list =  {
 	'hrsh7th/nvim-cmp',
 	'neovim/nvim-lspconfig',
 	'williamboman/nvim-lsp-installer',
+
+	-- Plantuml
 	-- TODO Remove plantuml in favour of emacs
 	'weirongxu/plantuml-previewer.vim',
 	'aklt/plantuml-syntax',
@@ -37,6 +36,9 @@ plugin_list =  {
 	'vim-airline/vim-airline',
 	'vim-airline/vim-airline-themes',
 }
+
+-- global which key object
+wk = require("which-key")
 
 -- --------------------
 -- Packer Plugin Manager
