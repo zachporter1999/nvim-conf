@@ -3,7 +3,6 @@
 -- by: Zach Porter
 --]]
 
-local wk = require("which-key")
 wk.register({
 	t = {
 		name = "Terminal",

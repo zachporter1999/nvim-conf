@@ -5,7 +5,6 @@
 
 vim.g.mapleader = ' '
 
-local wk = require("which-key")
 wk.register({
 	r = {"Toggle Relative Line Numbers"},
 	-- e = {"Pandoc Compile"}

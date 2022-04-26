@@ -7,7 +7,6 @@
 -- Open Files (n)
 -- --------------------
 
-local wk = require("which-key")
 wk.register({
 	n = {
 		name = "Open File",
@@ -30,7 +29,7 @@ vim.api.nvim_set_keymap( 'n', "<leader>nt",     ":Texplore<cr>",   {noremap = tr
 vim.api.nvim_set_keymap( 'n', "<leader>nv",     ":Vexplore<cr>",   {noremap = true} )
 
 -- Open new files in new buffer, split, tab, or vsplit
-vim.api.nvim_set_keymap( 'n', "<leader>nB",     ":enew   | edit <cr>",   {noremap = true} )
-vim.api.nvim_set_keymap( 'n', "<leader>nS",     ":split  | edit <cr>",   {noremap = true} )
-vim.api.nvim_set_keymap( 'n', "<leader>nT",     ":tabnew | edit <cr>",   {noremap = true} )
-vim.api.nvim_set_keymap( 'n', "<leader>nV",     ":vsplit | edit <cr>",   {noremap = true} )
+vim.api.nvim_set_keymap( 'n', "<leader>nB",     ":enew   | edit ",   {noremap = true} )
+vim.api.nvim_set_keymap( 'n', "<leader>nS",     ":split  | edit ",   {noremap = true} )
+vim.api.nvim_set_keymap( 'n', "<leader>nT",     ":tabnew | edit ",   {noremap = true} )
+vim.api.nvim_set_keymap( 'n', "<leader>nV",     ":vsplit | edit ",   {noremap = true} )

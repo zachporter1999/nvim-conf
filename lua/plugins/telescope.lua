@@ -10,11 +10,12 @@
 -- ====================
 -- Which Key
 -- ====================
-local wk = require("which-key")
+
 wk.register({
 	f = {"Find files"},
 	b = {"Find buffers"},
---	= {"Open file in new buffer"},
+
+	F = {"Lve Grep"}
 }, { prefix = "<leader>"})
 --
 -- ====================
@@ -22,5 +23,5 @@ wk.register({
 -- ====================
 vim.api.nvim_set_keymap('n', "<leader>f", ":Telescope find_files<cr>", {noremap = true})
 vim.api.nvim_set_keymap('n', "<leader>b", ":Telescope buffers<cr>", {noremap = true})
-vim.api.nvim_set_keymap('n', "<leader>/", ":Telescope live_grep<cr>", {noremap = true})
+vim.api.nvim_set_keymap('n', "<leader>F", ":Telescope live_grep<cr>", {noremap = true})
 
