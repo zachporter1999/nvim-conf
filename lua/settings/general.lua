@@ -3,7 +3,8 @@
 -- by: Zach Porter
 --]]
 
-vim.g.mapleader = ' '
+-- vim.g.mapleader = ' '
+ vim.g.mapleader = ';'
 
 wk.register({
 	r = {"Toggle Relative Line Numbers"},

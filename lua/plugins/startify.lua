@@ -3,6 +3,8 @@
 -- by: Zach Porter
 --]]
 
+require("bookmark-conf")
+
 vim.g.startify_lists = {
 	{
 		type = 'bookmarks',
@@ -24,3 +26,6 @@ vim.g.startify_bookmarks = {
 	},
 }
 
+for k, v in pairs(bookmark_list) do
+	table.insert(vim.g.startify_bookmarks, v)
+end
