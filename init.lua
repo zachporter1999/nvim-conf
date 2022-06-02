@@ -9,6 +9,7 @@ wk = require("which-key")
 -- load plugin list
 require('plugin-conf')
 require('bookmark-conf')
+require('tool-conf')
 
 -- --------------------
 -- Packer Plugin Manager
