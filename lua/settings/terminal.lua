@@ -19,6 +19,13 @@ wk.register({
 }, { prefix = "<leader>"})
 
 vim.api.nvim_set_keymap( 't', "<esc><esc>", "<C-\\><C-n>",                             {noremap = true} )
+vim.api.nvim_set_keymap( 't', "<C-w>h",     "<esc><C-w>h",                             {noremap = true} )
+vim.api.nvim_set_keymap( 't', "<C-w>j",     "<esc><C-w>j",                             {noremap = true} )
+vim.api.nvim_set_keymap( 't', "<C-w>k",     "<esc><C-w>k",                             {noremap = true} )
+vim.api.nvim_set_keymap( 't', "<C-w>l",     "<esc><C-w>l",                             {noremap = true} )
+
+-- Terminal control
+
 vim.api.nvim_set_keymap( 'n', "<leader>tj", ":split  | term<cr><C-w><S-j>10<C-w>-i",   {noremap = true} )
 vim.api.nvim_set_keymap( 'n', "<leader>th", ":vsplit | term<cr>i",                     {noremap = true} )
 vim.api.nvim_set_keymap( 'n', "<leader>tt", ":tabnew | term<cr>i",                     {noremap = true} )

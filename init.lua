@@ -17,6 +17,7 @@ require('tool-conf')
 require('plugin-install')
 
 require('settings/general')
+require('settings/autocmd')
 require('settings/config-manager')
 require('settings/file-explorer')
 require('settings/terminal')
