@@ -22,6 +22,7 @@ plugin_list =  {
 	'hrsh7th/cmp-path',
 	'hrsh7th/cmp-cmdline',
 	'hrsh7th/nvim-cmp',
+	'hrsh7th/cmp-vsnip',
 	'neovim/nvim-lspconfig',
 	'williamboman/nvim-lsp-installer',
 
