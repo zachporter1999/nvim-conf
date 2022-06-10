@@ -3,7 +3,8 @@
 -- by: Zach Porter
 --]]
 
-WK.register({
+local wk = require("which-key")
+wk.register({
 	h = {
  	name = "Nvim Config",
 		h = {"Startify"},

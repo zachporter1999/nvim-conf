@@ -7,7 +7,8 @@
 -- Open Files (n)
 -- --------------------
 
-WK.register({
+local wk = require("which-key")
+wk.register({
 	f = {
 		-- File navigation
 		name = "Open File",

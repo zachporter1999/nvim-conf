@@ -81,6 +81,4 @@ for _, file in pairs(active_settings) do
 	require(file)
 end
 
--- global which key object
-WK = require("which-key")
 
