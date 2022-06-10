@@ -3,7 +3,7 @@
 -- by: Zach Porter
 --]]
 
-wk.register({
+WK.register({
 	h = {
  	name = "Nvim Config",
 		h = {"Startify"},
@@ -12,6 +12,5 @@ wk.register({
 	},
 }, { prefix = "<leader>"})
 
-vim.api.nvim_set_keymap( 'n', '<leader>hh', ':Startify<cr>',                            {noremap = true})
-vim.api.nvim_set_keymap( 'n', "<leader>hc", ":enew | edit "..vim.fn.stdpath('config').."/init.lua<cr>", {noremap = true} )
-vim.api.nvim_set_keymap( 'n', "<leader>hr", ":luafile ~/.config/nvim/init.lua<cr>",     {noremap = true} )
+vim.api.nvim_set_keymap( 'n', '<leader>hh', ':Startify<cr>',                        {noremap = true} )
+vim.api.nvim_set_keymap( 'n', "<leader>hr", ":luafile ~/.config/nvim/init.lua<cr>", {noremap = true} ) -- TODO revise reloading init

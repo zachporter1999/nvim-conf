@@ -9,7 +9,7 @@ if not vim.fn.has('unix') then
 	vim.cmd 'set shell=powershell'
 end
 
-wk.register({
+WK.register({
 	t = {
 		name = "Terminal",
 		j = {"Open in spit"},
@@ -17,6 +17,8 @@ wk.register({
 		t = {"Open in new tab"},
 	},
 }, { prefix = "<leader>"})
+
+-- Navigation 
 
 vim.api.nvim_set_keymap( 't', "<esc><esc>", "<C-\\><C-n>",                             {noremap = true} )
 vim.api.nvim_set_keymap( 't', "<C-w>h",     "<esc><C-w>h",                             {noremap = true} )

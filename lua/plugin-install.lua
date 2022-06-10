@@ -16,8 +16,8 @@ packer = require 'packer'
 packer.reset()
 
 packer.startup(function()
-	for idx = 1, #plugin_list do
-		use {plugin_list[idx]}
+	for idx = 1, #PLUGIN_LIST do
+		use {PLUGIN_LIST[idx]}
 	end
 	-- use {
 	-- 	'nvim-lualine/lualine.nvim',
