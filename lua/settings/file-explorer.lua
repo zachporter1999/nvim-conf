@@ -26,8 +26,17 @@ wk.register({
 		L = {"New Vsplit Right (Telescope)"},
 		T = {"New Tab (Telescope)"},
 
-		b = {"Buffers"},
 		g = {"Lve Grep"},
+	},
+	b = {
+		-- File navigation
+		name = "Open Buffer",
+		n = {"Switch to new buffer"},
+		j = {"Split down and open existing buffer"},
+		k = {"Split up and open existing buffer"},
+		h = {"Split left and open existing buffer"},
+		l = {"Split right and open existing buffer"},
+		t = {"Open buffer in new tab"},
 	},
 }, { prefix = "<leader>"})
 
@@ -52,5 +61,11 @@ vim.api.nvim_set_keymap( 'n', "<leader>fL",     ":set   splitright  | vsplit | T
 
 -- Buffers and Search
 
-vim.api.nvim_set_keymap( 'n', "<leader>fb", ":Telescope buffers<cr>",   {noremap = true} )
+vim.api.nvim_set_keymap( 'n', "<leader>bn", ":Telescope buffers<cr>",   {noremap = true} )
+vim.api.nvim_set_keymap( 'n', "<leader>bj", ":set nosplitbelow  | split  | Telescope buffers<cr>",   {noremap = true} )
+vim.api.nvim_set_keymap( 'n', "<leader>bj", ":set   splitbelow  | split  | Telescope buffers<cr>",   {noremap = true} )
+vim.api.nvim_set_keymap( 'n', "<leader>bh", ":set nosplitright  | vsplit | Telescope buffers<cr>",   {noremap = true} )
+vim.api.nvim_set_keymap( 'n', "<leader>bl", ":set   splitright  | vsplit | Telescope buffers<cr>",   {noremap = true} )
+vim.api.nvim_set_keymap( 'n', "<leader>bt", ":tabnew | Telescope buffers<cr>",   {noremap = true} )
+
 vim.api.nvim_set_keymap( 'n', "<leader>fg", ":Telescope live_grep<cr>", {noremap = true} )
