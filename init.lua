@@ -8,15 +8,17 @@ TOOL_CONF = {
     shell = (vim.fn.has('windows') and 'powershell' or 'bash'), -- default shell
 }
 
+-- Load Settings
 require("settings/general")
 -- require("settings/autocmd")
 require("settings/file-explorer")
 require("settings/terminal")
-require("settings/config-manager")
 require("settings/appearance")
 require("settings/lsp")
 require("settings/startmenu")
-require("custom/custom") -- Loads any custom files
+
+-- Loads any custom files
+require("custom/custom")
 
 -- Packer Bootstrap
 local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
