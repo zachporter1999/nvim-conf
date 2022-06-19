@@ -25,7 +25,7 @@ lualine.setup({
 
 onedark.setup {
     style = 'darker',
-    transparent = true,
+    transparent = false,
 }
 onedark.load()
 
