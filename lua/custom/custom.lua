@@ -1,6 +1,16 @@
+--[[
 -- Custom values
+-- by: Zach
+--
+-- If any device specific settings must be set, 
+-- require this file in the init.lua. From here 
+-- require any files withing custom/. All files
+-- in custom/ will not be synced to git. 
+--]]
 
-require('custom/bookmarks')
+-- ========================================
+-- Helper Functions
+-- ========================================
 
 function combine_lists(base_list, custom_list)
     if (custom_list) then
@@ -9,5 +19,13 @@ function combine_lists(base_list, custom_list)
         end
     end
 end
+
+-- ========================================
+-- Loading of files
+-- ========================================
+
+-- example
+-- require('custom/example')
+
 
     
