@@ -1,10 +1,18 @@
 --[[
--- appearance.lua
+-- Appearance
 -- by: Zach Porter
+--
+-- This config file deals with anything related to 
+-- the appearance of neovim.
 --]]
 local onedark = require('onedark')
 local lualine = require('lualine')
         
+-- ========================================
+-- Lua Line
+--
+-- Setup up the tabline (top), and lualine (bottom).
+-- ========================================
 lualine.setup({
 	option = {
         icons_enabled = true,
@@ -16,34 +24,30 @@ lualine.setup({
       lualine_c = {},
       lualine_x = {},
       lualine_y = {'tabs'},
-      lualine_z = {}
+      lualine_z = {},
     },
     extenstions = {},
 })
 
--- colorscheme
-
+-- ========================================
+-- Color Scheme
+-- ========================================
 onedark.setup {
     style = 'darker',
     transparent = false,
 }
 onedark.load()
 
--- TODO Move to plugin file
-vim.g.vscode_style = "dark"
-vim.g.vscode_transparent = true
-vim.g.vscode_italic_comment = 1
--- vim.cmd [[silent! colorscheme vscode]]
-
 vim.cmd [[silent! colorscheme onedark]]
 
--- formatting
-
+-- ========================================
+-- Formatting
+-- ========================================
+vim.o.tabstop        = 4
+vim.o.shiftwidth     = 4
 vim.o.autochdir      = true
 vim.o.autoindent     = true
 vim.o.expandtab      = true
-vim.o.tabstop        = 4
-vim.o.shiftwidth     = 4
 vim.o.number         = true
 vim.o.relativenumber = true
 vim.o.cursorline     = true

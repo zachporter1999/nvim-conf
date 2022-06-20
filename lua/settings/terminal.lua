@@ -1,13 +1,14 @@
 --[[
--- mappings.lua
+-- Terminal
 -- by: Zach Porter
+--
+-- This config contains all configs related to 
+-- launching a terminal or a terminal based app.
 --]]
 
--- Windows Specific
--- TODO fix this to work
-if not vim.fn.has('unix') then
-	vim.cmd 'set shell=powershell'
-end
+-- ========================================
+-- Which Key Setup
+-- ========================================
 
 local wk = require("which-key")
 wk.register({
@@ -19,7 +20,11 @@ wk.register({
 	},
 }, { prefix = "<leader>"})
 
--- Navigation 
+-- ========================================
+-- Navication
+--
+-- Mappings to allow easy navigation when in terminal mode
+-- ========================================
 
 vim.api.nvim_set_keymap( 't', "<esc><esc>", "<C-\\><C-n>",                             {noremap = true} )
 vim.api.nvim_set_keymap( 't', "<C-q>",      "<C-\\><C-n>",                             {noremap = true} )
@@ -34,24 +39,17 @@ vim.api.nvim_set_keymap('t', "<C-w>k", "<C-\\><C-N><C-w>k", {noremap = true} )
 vim.api.nvim_set_keymap('t', "<C-w>l", "<C-\\><C-N><C-w>l", {noremap = true} )
 vim.api.nvim_set_keymap('t', "<C-w>h", "<C-\\><C-N><C-w>h", {noremap = true} )
 
---[[
-vim.api.nvim_set_keymap('t', "<space>wj", "<C-\\><C-N><C-w>j", {noremap = true} )
-vim.api.nvim_set_keymap('t', "<space>wk", "<C-\\><C-N><C-w>k", {noremap = true} )
-vim.api.nvim_set_keymap('t', "<space>wl", "<C-\\><C-N><C-w>l", {noremap = true} )
-vim.api.nvim_set_keymap('t', "<space>wh", "<C-\\><C-N><C-w>h", {noremap = true} )
-vim.api.nvim_set_keymap('n', "<space>wj", "<C-w>j", {noremap = true} )
-vim.api.nvim_set_keymap('n', "<space>wk", "<C-w>k", {noremap = true} )
-vim.api.nvim_set_keymap('n', "<space>wl", "<C-w>l", {noremap = true} )
-vim.api.nvim_set_keymap('n', "<space>wh", "<C-w>h", {noremap = true} )
---]]
-
--- Terminal control
+-- ========================================
+-- Terminal Launching
+-- ========================================
 
 vim.api.nvim_set_keymap( 'n', "<leader>tj", ":split  | term "..TOOL_CONF.shell.."<cr><C-w><S-j>10<C-w>-i",   {noremap = true} )
 vim.api.nvim_set_keymap( 'n', "<leader>th", ":vsplit | term "..TOOL_CONF.shell.."<cr>i",                     {noremap = true} )
 vim.api.nvim_set_keymap( 'n', "<leader>tt", ":tabnew | term "..TOOL_CONF.shell.."<cr>i",                     {noremap = true} )
 
--- Git conf
+-- ========================================
+-- Git Launching
+-- ========================================
 
 vim.api.nvim_set_keymap( 'n', "<leader>gj", ":split  | term "..TOOL_CONF.git.."<cr>i", {noremap = true} )
 vim.api.nvim_set_keymap( 'n', "<leader>gh", ":vsplit | term "..TOOL_CONF.git.."<cr>i", {noremap = true} )

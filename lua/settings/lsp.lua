@@ -1,5 +1,8 @@
 --[[
+-- LSP
+-- by: Zach Porter
 --
+-- This config contains the setup for nvim-lsp, and cmp.
 --]]
 
 local lsp_installer = require("nvim-lsp-installer")

@@ -1,10 +1,15 @@
 --[[
--- general.lua
+-- General
 -- by: Zach Porter
+--
+-- This config is for general, sometimes experimental
+-- settings. Some basic make funcitonality is located
+-- here, along with an experimental md to pdf funciton.
 --]]
 
--- vim.g.mapleader = ' '
- vim.g.mapleader = ';'
+-- ========================================
+-- Which Key Setup
+-- ========================================
 
 local wk = require("which-key")
 wk.register({
@@ -17,11 +22,25 @@ wk.register({
     },
 }, { prefix = "<leader>"})
 
-vim.api.nvim_set_keymap('n', "<leader>e",       ":!pandoc -o ",  {noremap = true} )
-vim.api.nvim_set_keymap('n', "<leader><space>", ":pwd<cr>",      {noremap = true} )
+-- ========================================
+-- Leader Key Mapping
+-- ========================================
+
+ vim.g.mapleader = ';'
+
+-- ========================================
+-- Make
+-- ========================================
+--
 vim.api.nvim_set_keymap('n', "<leader>ma", ":!make all<cr>",      {noremap = true} )
 vim.api.nvim_set_keymap('n', "<leader>mc", ":!make clean<cr>",      {noremap = true} )
 vim.api.nvim_set_keymap('n', "<leader>mm", ":!make ",      {noremap = true} )
+
+-- ========================================
+-- [Experimental] MD to pdf 
+-- ========================================
+
+vim.api.nvim_set_keymap('n', "<leader>e",       ":!pandoc -o ",  {noremap = true} )
 
 function my_md2pdf(filename)
 	local pos = string.find(filename, ".md")

@@ -1,6 +1,17 @@
 --[[
+-- Start Menu
+-- by: Zach Porter
 --
+-- This config is primarly based around startify, and contains some 
+-- key mappings to get to the startify page quickly, along with my 
+-- default startify menu and bookmark config.
 --]]
+
+require("custom/custom")
+
+-- ========================================
+-- Which Key Setup
+-- ========================================
 
 local wk = require("which-key")
 wk.register({
@@ -12,6 +23,10 @@ wk.register({
 	},
 }, { prefix = "<leader>"})
 
+-- ========================================
+-- Mappings
+-- ========================================
+
 vim.api.nvim_set_keymap( 'n', '<leader>hn', ':Startify<cr>',                        {noremap = true} )
 vim.api.nvim_set_keymap( 'n', "<leader>hr", ":luafile ~/.config/nvim/init.lua<cr>", {noremap = true} ) -- TODO revise reloading init
 
@@ -21,18 +36,9 @@ vim.api.nvim_set_keymap( 'n', "<leader>hh",     ":set nosplitright  | vsplit | S
 vim.api.nvim_set_keymap( 'n', "<leader>hl",     ":set   splitright  | vsplit | Startify<cr>", {noremap = true} )
 vim.api.nvim_set_keymap( 'n', "<leader>ht",     ":tabnew | Startify<cr>", {noremap = true} )
 
--- Start menu config
-local bookmarks = {
-	{
-		h = "~",
-	},
-	{
-		d = "~/Documents",
-	},
-    {
-        c = vim.fn.stdpath('config')..'/init.lua',
-    },
-}
+-- ========================================
+-- Start Menus Layout
+-- ========================================
 
 vim.g.startify_lists = {
 	{
@@ -49,17 +55,23 @@ vim.g.startify_lists = {
 	},
 }
 
-function combine_bookmark_lists(default_list, custom_list)
-    if (custom_list) then
-        for k,v in pairs(custom_list) do
-            table.insert(default_list, v)
-        end
-    end
-end
+-- ========================================
+-- Bookmark setup
+-- ========================================
+
+local bookmarks = {
+	{
+		h = "~",
+	},
+	{
+		d = "~/Documents",
+	},
+    {
+        c = vim.fn.stdpath('config')..'/init.lua',
+    },
+}
 
 function bookmarks_load(bookmark_list)
-    if (bookmark_list) then
-        combine_bookmark_lists(bookmarks, bookmark_list)
-    end
+    combine_lists(bookmarks, bookmark_list)
     vim.g.startify_bookmarks = bookmarks
 end

@@ -1,11 +1,14 @@
 --[[
--- mappings.lua
+-- File Explorer
 -- by: Zach Porter
+--
+-- This config is related to navigating files, and buffers.
 --]]
 
--- --------------------
--- Open Files (n)
--- --------------------
+
+-- ========================================
+-- Which Key Setup
+-- ========================================
 
 local wk = require("which-key")
 wk.register({
@@ -40,7 +43,12 @@ wk.register({
 	},
 }, { prefix = "<leader>"})
 
+-- ========================================
+-- File Explorer
+--
 -- Open new files in new buffer, split, tab, or vsplit using explorer
+-- ========================================
+
 vim.api.nvim_set_keymap( 'n', "<leader>fn",     ":Explore<cr>",            {noremap = true} )
 vim.api.nvim_set_keymap( 'n', "<leader>ft",     ":Texplore<cr>",           {noremap = true} )
 
@@ -49,8 +57,12 @@ vim.api.nvim_set_keymap( 'n', "<leader>fj",     ":Sexplore<cr><C-w><S-j>", {nore
 vim.api.nvim_set_keymap( 'n', "<leader>fh",     ":Vexplore<cr>",           {noremap = true} )
 vim.api.nvim_set_keymap( 'n', "<leader>fl",     ":Vexplore<cr><C-w><S-l>", {noremap = true} )
 
+-- ========================================
+-- File Searcher
+--
 -- Open new files in new buffer, split, tab, or vsplit using Telescope
--- TODO Move to telescope file?
+-- ========================================
+
 vim.api.nvim_set_keymap( 'n', "<leader>fN",     ":Telescope find_files<cr>",                              {noremap = true} )
 vim.api.nvim_set_keymap( 'n', "<leader>fT",     ":tabnew | Telescope find_files<cr> ",                    {noremap = true} )
 
@@ -59,7 +71,9 @@ vim.api.nvim_set_keymap( 'n', "<leader>fJ",     ":set   splitbelow  | split  | T
 vim.api.nvim_set_keymap( 'n', "<leader>fH",     ":set nosplitright  | vsplit | Telescope find_files<cr>", {noremap = true} )
 vim.api.nvim_set_keymap( 'n', "<leader>fL",     ":set   splitright  | vsplit | Telescope find_files<cr>", {noremap = true} )
 
--- Buffers and Search
+-- ========================================
+-- Buffer Explorer
+-- ========================================
 
 vim.api.nvim_set_keymap( 'n', "<leader>bn", ":Telescope buffers<cr>",   {noremap = true} )
 vim.api.nvim_set_keymap( 'n', "<leader>bj", ":set nosplitbelow  | split  | Telescope buffers<cr>",   {noremap = true} )
@@ -67,5 +81,9 @@ vim.api.nvim_set_keymap( 'n', "<leader>bj", ":set   splitbelow  | split  | Teles
 vim.api.nvim_set_keymap( 'n', "<leader>bh", ":set nosplitright  | vsplit | Telescope buffers<cr>",   {noremap = true} )
 vim.api.nvim_set_keymap( 'n', "<leader>bl", ":set   splitright  | vsplit | Telescope buffers<cr>",   {noremap = true} )
 vim.api.nvim_set_keymap( 'n', "<leader>bt", ":tabnew | Telescope buffers<cr>",   {noremap = true} )
+
+-- ========================================
+-- Git tui tool
+-- ========================================
 
 vim.api.nvim_set_keymap( 'n', "<leader>fg", ":Telescope live_grep<cr>", {noremap = true} )
