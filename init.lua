@@ -17,7 +17,7 @@
 -- ========================================
 TOOL_CONF = {
 	git = 'tig',
-    shell = (vim.fn.has('windows') and 'powershell' or 'bash'), -- default shell
+    shell = (vim.fn.has('unix') and 'bash' or 'powershell'), -- default shell
 }
 
 -- ========================================
@@ -40,6 +40,7 @@ require("settings/terminal")
 require("settings/appearance")
 require("settings/lsp")
 require("settings/startmenu")
+require("settings/orgmode")
 require("custom/custom")
 
 -- ========================================
@@ -68,6 +69,11 @@ packer.startup(function()
 	use 'mhinz/vim-startify'
 
 	use 'vimwiki/vimwiki'
+    use {'nvim-treesitter/nvim-treesitter'}
+    use {'nvim-orgmode/orgmode', config = function()
+            require('orgmode').setup{}
+    end
+    }
 
 	use 'neovim/nvim-lspconfig'
 	use 'hrsh7th/cmp-nvim-lsp'
