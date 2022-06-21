@@ -61,8 +61,7 @@ end
 -- ========================================
 local packer = require 'packer'
 
-packer.reset()
-packer.startup(function()
+function packer_plugins()
 	use 'wbthomason/packer.nvim'
 
 	use 'mhinz/vim-startify'
@@ -86,6 +85,8 @@ packer.startup(function()
 	use 'Mofiqul/vscode.nvim'
     use 'navarasu/onedark.nvim'
 
+    use 'ttbug/tig.nvim'
+
     use {
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/plenary.nvim'}}
@@ -102,7 +103,12 @@ packer.startup(function()
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
-end)
+end
+
+require('tig').setup()
+
+packer.reset()
+packer.startup(packer_plugins)
 
 -- ========================================
 -- Combine custom lists
