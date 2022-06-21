@@ -23,7 +23,12 @@ lualine.setup({
       lualine_b = {'windows'},
       lualine_c = {},
       lualine_x = {},
-      lualine_y = {'tabs'},
+      lualine_y = {
+          {
+              'tabs',
+              mode=1,
+          },
+      },
       lualine_z = {},
     },
     extenstions = {},
