@@ -51,10 +51,9 @@ vim.api.nvim_set_keymap( 'n', "<leader>tt", ":tabnew | term "..TOOL_CONF.shell..
 -- Git Launching
 -- ========================================
 
-vim.api.nvim_set_keymap( 'n', "<leader>gj", ":split  | term "..TOOL_CONF.git.."<cr>i", {noremap = true} )
-vim.api.nvim_set_keymap( 'n', "<leader>gh", ":vsplit | term "..TOOL_CONF.git.."<cr>i", {noremap = true} )
-vim.api.nvim_set_keymap( 'n', "<leader>gt", ":tabnew | term "..TOOL_CONF.git.."<cr>i", {noremap = true} )
-
 vim.api.nvim_set_keymap( 'n', "<leader>gp", ":!git push<cr>",                                {noremap = true} )
 vim.api.nvim_set_keymap( 'n', "<leader>gP", ":!git pull<cr>",                                {noremap = true} )
-
+-- vim.api.nvim_set_keymap( 'n', "<leader>gj", ":split  | term "..TOOL_CONF.git.."<cr>i", {noremap = true} )
+-- vim.api.nvim_set_keymap( 'n', "<leader>gh", ":vsplit | term "..TOOL_CONF.git.."<cr>i", {noremap = true} )
+-- vim.api.nvim_set_keymap( 'n', "<leader>gt", ":tabnew | term "..TOOL_CONF.git.."<cr>i", {noremap = true} )
+vim.api.nvim_set_keymap( 'n', "<leader>gt", ":lua require(\"tig\").open()<cr>", {noremap = true} )
