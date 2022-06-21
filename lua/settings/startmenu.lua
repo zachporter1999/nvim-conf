@@ -40,10 +40,11 @@ vim.api.nvim_set_keymap( 'n', "<leader>ht",     ":tabnew | Startify<cr>", {norem
 -- Start Menus Layout
 -- ========================================
 
+vim.g.startify_files_number = 5
 vim.g.startify_lists = {
 	{
 		type = 'files',
-		header = {'MRU'},
+		header = {'Recent Files'},
 	},
 	{
 		type = 'bookmarks',
