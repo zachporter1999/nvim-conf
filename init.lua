@@ -105,10 +105,10 @@ function packer_plugins()
     }
 end
 
-require('tig').setup()
-
 packer.reset()
 packer.startup(packer_plugins)
+
+require('tig').setup()
 
 -- ========================================
 -- Combine custom lists
