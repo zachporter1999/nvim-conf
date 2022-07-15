@@ -16,31 +16,9 @@
 -- extensibility.
 -- ========================================
 TOOL_CONF = {
-	git = 'tig',
+    git = 'tig',
     shell = (vim.fn.has('windows') and 'powershell' or 'bash'), -- default shell
 }
-
--- ========================================
--- Load Settings
---
--- The configuration has been modularized and grouped
--- into easier to manager sections. Below are the settings
--- files that are being used.
---
--- Note: Any file in settings/ is a settings file and it 
---       tracked by git. 
--- Note: Any file in custom/ other than custom.lua will not 
---       be tracked by git and should be used to add Settings
---       unique to your system.
--- ========================================
-require("settings/general")
--- require("settings/autocmd")
-require("settings/file-explorer")
-require("settings/terminal")
-require("settings/appearance")
-require("settings/lsp")
-require("settings/startmenu")
-require("custom/custom")
 
 -- ========================================
 -- Packer Bootstrap
@@ -62,28 +40,25 @@ end
 local packer = require 'packer'
 
 function packer_plugins()
-	use 'wbthomason/packer.nvim'
+    use 'wbthomason/packer.nvim'
 
-	use 'mhinz/vim-startify'
+    use 'mhinz/vim-startify'
 
-	use 'vimwiki/vimwiki'
+    use 'vimwiki/vimwiki'
 
-	use 'neovim/nvim-lspconfig'
-	use 'hrsh7th/cmp-nvim-lsp'
-	use 'hrsh7th/cmp-buffer'
-	use 'hrsh7th/cmp-path'
-	use 'hrsh7th/cmp-cmdline'
-	use 'hrsh7th/nvim-cmp'
-	use 'hrsh7th/cmp-vsnip'
-	use 'neovim/nvim-lspconfig'
-	use 'williamboman/nvim-lsp-installer'
+    use 'neovim/nvim-lspconfig'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-vsnip'
+    use 'neovim/nvim-lspconfig'
+    use 'williamboman/nvim-lsp-installer'
 
-	use 'weirongxu/plantuml-previewer.vim'
-	use 'aklt/plantuml-syntax'
-	use 'tyru/open-browser.vim'
-
-	use 'Mofiqul/vscode.nvim'
-    use 'navarasu/onedark.nvim'
+    use 'weirongxu/plantuml-previewer.vim'
+    use 'aklt/plantuml-syntax'
+    use 'tyru/open-browser.vim'
 
     use 'ttbug/tig.nvim'
 
@@ -109,6 +84,28 @@ packer.reset()
 packer.startup(packer_plugins)
 
 require('tig').setup()
+
+-- ========================================
+-- Load Settings
+--
+-- The configuration has been modularized and grouped
+-- into easier to manager sections. Below are the settings
+-- files that are being used.
+--
+-- Note: Any file in settings/ is a settings file and it 
+--       tracked by git. 
+-- Note: Any file in custom/ other than custom.lua will not 
+--       be tracked by git and should be used to add Settings
+--       unique to your system.
+-- ========================================
+require("settings/general")
+-- require("settings/autocmd")
+require("settings/file-explorer")
+require("settings/terminal")
+require("settings/appearance")
+require("settings/lsp")
+require("settings/startmenu")
+require("custom/custom")
 
 -- ========================================
 -- Combine custom lists
