@@ -20,8 +20,13 @@ vim.o.number         = true
 vim.o.relativenumber = true
 vim.o.list           = true
 
-vim.cmd[[hi StatusLine   ctermfg=black  ctermbg=yellow]]
-vim.cmd[[hi StatusLineNC ctermfg=black  ctermbg=grey]]
-vim.cmd[[hi TabLine      ctermfg=yellow ctermbg=black]]
-vim.cmd[[hi TabLineFill  ctermfg=grey  ctermbg=black]]
-vim.cmd[[hi TabLineSel   ctermfg=yellow  ctermbg=black]]
+-- ========================================
+-- Custom Colorscheme
+-- TODO move to colour scheme
+-- ========================================
+vim.cmd[[hi StatusLine   ctermfg=red  ctermbg=black]]
+vim.cmd[[hi StatusLineNC ctermfg=black  ctermbg=8]]
+vim.cmd[[hi WinSeparator ctermfg=red  ctermbg=black]]
+vim.cmd[[hi TabLine      ctermfg=8 ctermbg=black]]
+vim.cmd[[hi TabLineFill  ctermfg=black  ctermbg=white]]
+vim.cmd[[hi TabLineSel   ctermfg=red  ctermbg=black]]
