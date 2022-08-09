@@ -36,15 +36,3 @@ vim.api.nvim_set_keymap('n', "<leader>ma", ":!make all<cr>",      {noremap = tru
 vim.api.nvim_set_keymap('n', "<leader>mc", ":!make clean<cr>",      {noremap = true} )
 vim.api.nvim_set_keymap('n', "<leader>mm", ":!make ",      {noremap = true} )
 
--- ========================================
--- [Experimental] MD to pdf 
--- ========================================
-
-vim.api.nvim_set_keymap('n', "<leader>e",       ":!pandoc -o ",  {noremap = true} )
-
-function my_md2pdf(filename)
-	local pos = string.find(filename, ".md")
-	local pdf_filename = string.sub(filename, 1, 5) .. "pdf"
-	os.execute("pandoc -o " .. pdf_filename .. " " .. filename)
-end
-

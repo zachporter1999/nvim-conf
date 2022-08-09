@@ -9,18 +9,6 @@
 --]]
 
 -- ========================================
--- Global Tool Config
---
--- The tools listed here may be used throught the config.
--- This table is setup to allow easy customization and 
--- extensibility.
--- ========================================
-TOOL_CONF = {
-    git = 'tig',
-    shell = (vim.fn.has('windows') and 'powershell' or 'bash'), -- default shell
-}
-
--- ========================================
 -- Packer Bootstrap
 --
 -- This is for installing packer when installing
@@ -60,8 +48,6 @@ function packer_plugins()
     use 'aklt/plantuml-syntax'
     use 'tyru/open-browser.vim'
 
-    use 'ttbug/tig.nvim'
-
     use {
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/plenary.nvim'}}
@@ -73,17 +59,10 @@ function packer_plugins()
             require("which-key").setup {}
         end
     }
-
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-    }
 end
 
 packer.reset()
 packer.startup(packer_plugins)
-
-require('tig').setup()
 
 -- ========================================
 -- Load Settings
@@ -98,14 +77,13 @@ require('tig').setup()
 --       be tracked by git and should be used to add Settings
 --       unique to your system.
 -- ========================================
-require("settings/general")
--- require("settings/autocmd")
-require("settings/file-explorer")
-require("settings/terminal")
-require("settings/appearance")
-require("settings/lsp")
-require("settings/startmenu")
-require("custom/custom")
+
+require("general")
+require("file-explorer")
+require("appearance")
+require("lsp")
+require("startmenu")
+require("custom")
 
 -- ========================================
 -- Combine custom lists
