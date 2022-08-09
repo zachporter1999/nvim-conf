@@ -7,7 +7,7 @@
 -- default startify menu and bookmark config.
 --]]
 
-require("custom/custom")
+require("custom")
 
 -- ========================================
 -- Which Key Setup
