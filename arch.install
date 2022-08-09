@@ -3,6 +3,7 @@
 # Dependancy List
 deps=(
     nvim
+    ripgrep
 )
 
 # Update
