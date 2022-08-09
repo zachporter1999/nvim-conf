@@ -31,8 +31,7 @@ wk.register({
 -- ========================================
 -- Make
 -- ========================================
---
+
 vim.api.nvim_set_keymap('n', "<leader>ma", ":!make all<cr>",      {noremap = true} )
 vim.api.nvim_set_keymap('n', "<leader>mc", ":!make clean<cr>",      {noremap = true} )
 vim.api.nvim_set_keymap('n', "<leader>mm", ":!make ",      {noremap = true} )
-
