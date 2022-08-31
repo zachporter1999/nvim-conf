@@ -31,6 +31,11 @@ function packer_plugins()
     use 'wbthomason/packer.nvim'
 
     use 'mhinz/vim-startify'
+    use 'marko-cerovac/material.nvim'
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
 
     use 'vimwiki/vimwiki'
 
@@ -51,6 +56,14 @@ function packer_plugins()
     use {
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/plenary.nvim'}}
+    }
+
+    use {
+        'kyazdani42/nvim-tree.lua',
+        requires = {
+            'kyazdani42/nvim-web-devicons', -- optional, for file icons
+        },
+        -- tag = 'nightly' -- optional, updated every week. (see issue #1193)
     }
 
     use {
