@@ -6,7 +6,18 @@
 -- the appearance of neovim.
 --]]
 
-vim.cmd [[silent! colorscheme custom]]
+require('lualine').setup({
+    theme = "auto",
+})
+
+
+require('material').setup({
+    lualine_style = "stealth",
+})
+
+
+vim.cmd [[silent! colorscheme material]]
+vim.g.material_style = "deap ocean"
 
 -- ========================================
 -- Formatting
