@@ -43,6 +43,8 @@ wk.register({
 	},
 }, { prefix = "<leader>"})
 
+require('nvim-tree').setup()
+
 -- ========================================
 -- File Explorer
 --
