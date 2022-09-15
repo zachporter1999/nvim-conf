@@ -15,12 +15,12 @@ wk.register({
 	f = {
 		-- File navigation
 		name = "Open File",
-		n = {"New Buffer (Explore)"},
-		j = {"New Split Down (Explore)"},
-		k = {"New Split Up (Explore)"},
-		h = {"New Vsplit Left (Explore)"},
-		l = {"New Vsplit Right (Explore)"},
-		t = {"New Tab (Explore)"},
+		n = {"New Buffer (Nvim Tree)"},
+		j = {"New Split Down (Nvim Tree)"},
+		k = {"New Split Up (Nvim Tree)"},
+		h = {"New Vsplit Left (Nvim Tree)"},
+		l = {"New Vsplit Right (Nvim Tree)"},
+		t = {"New Tab (Nvim Tree)"},
 
 		N = {"New Buffer (Telescope)"},
 		J = {"New Split Down (Telescope)"},
@@ -51,13 +51,13 @@ require('nvim-tree').setup()
 -- Open new files in new buffer, split, tab, or vsplit using explorer
 -- ========================================
 
-vim.api.nvim_set_keymap( 'n', "<leader>fn",     ":Explore<cr>",            {noremap = true} )
-vim.api.nvim_set_keymap( 'n', "<leader>ft",     ":Texplore<cr>",           {noremap = true} )
+vim.api.nvim_set_keymap( 'n', "<leader>fn",     ":NvimTreeToggle<cr>",          {noremap = true} )
+vim.api.nvim_set_keymap( 'n', "<leader>ft",     ":tabnew | NvimTreeToggle<cr>", {noremap = true} )
 
-vim.api.nvim_set_keymap( 'n', "<leader>fk",     ":Sexplore<cr>",           {noremap = true} )
-vim.api.nvim_set_keymap( 'n', "<leader>fj",     ":Sexplore<cr><C-w><S-j>", {noremap = true} )
-vim.api.nvim_set_keymap( 'n', "<leader>fh",     ":Vexplore<cr>",           {noremap = true} )
-vim.api.nvim_set_keymap( 'n', "<leader>fl",     ":Vexplore<cr><C-w><S-l>", {noremap = true} )
+vim.api.nvim_set_keymap( 'n', "<leader>fK",     ":set nosplitbelow  | split  | NvimTreeToggle<cr>", {noremap = true} )
+vim.api.nvim_set_keymap( 'n', "<leader>fJ",     ":set   splitbelow  | split  | NvimTreeToggle<cr>", {noremap = true} )
+vim.api.nvim_set_keymap( 'n', "<leader>fH",     ":set nosplitright  | vsplit | NvimTreeToggle<cr>", {noremap = true} )
+vim.api.nvim_set_keymap( 'n', "<leader>fL",     ":set   splitright  | vsplit | NvimTreeToggle<cr>", {noremap = true} )
 
 -- ========================================
 -- File Searcher

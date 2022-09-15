@@ -71,6 +71,14 @@ local bookmarks = {
     },
 }
 
+vim.g.vimwiki_list = {
+    {
+        path   = '~/vimwiki/',
+        syntax = 'markdown',
+        ext    = '.md'
+    }
+ }
+
 function bookmarks_load(bookmark_list)
     combine_lists(bookmarks, bookmark_list)
     vim.g.startify_bookmarks = bookmarks

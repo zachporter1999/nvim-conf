@@ -8,6 +8,14 @@
 
 require('lualine').setup({
     theme = "auto",
+    tabline = {
+        lualine_a = {},
+        lualine_b = {'buffers'},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {'tabs'},
+        lualine_z = {}
+    }
 })
 
 
@@ -16,8 +24,8 @@ require('material').setup({
 })
 
 
+vim.g.material_style = "palenight"
 vim.cmd [[silent! colorscheme material]]
-vim.g.material_style = "deap ocean"
 
 -- ========================================
 -- Formatting
@@ -29,4 +37,4 @@ vim.o.expandtab      = true
 vim.o.number         = true
 vim.o.relativenumber = true
 vim.o.list           = true
-
+vim.o.wrap           = false
