@@ -2,8 +2,7 @@
 -- init.lua
 -- by: Zach Porter
 --
--- This is the main config file for my neovim config.
--- A list of plugins, tools mappings, and loading of
+-- This is the main config file for my neovim config. A list of plugins, tools mappings, and loading of
 -- the required settings files can be found here
 --
 --]]

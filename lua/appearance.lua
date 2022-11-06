@@ -24,8 +24,9 @@ require('material').setup({
 })
 
 
-vim.g.material_style = "palenight"
-vim.cmd [[silent! colorscheme material]]
+--vim.g.material_style = "palenight"
+--vim.cmd [[silent! colorscheme material]]
+vim.cmd [[silent! colorscheme default]]
 
 -- ========================================
 -- Formatting
