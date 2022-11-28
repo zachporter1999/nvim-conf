@@ -5,6 +5,25 @@
 -- This config contains the setup for nvim-lsp, and cmp.
 --]]
 
+-- ========================================
+-- Which Key Setup
+-- ========================================
+
+local wk = require("which-key")
+wk.register({
+	l = {
+		-- File navigation
+		name = "LSP",
+		r = {"Referances"},
+		d = {"Definitions"},
+		D = {"Declarations"},
+	},
+}, { prefix = "<leader>"})
+
+vim.api.nvim_set_keymap( 'n', "<leader>lr", ":lua vim.lsp.buf.references()<cr>", {noremap = true} )
+vim.api.nvim_set_keymap( 'n', "<leader>ld", ":lua vim.lsp.buf.definition()<cr>", {noremap = true} )
+vim.api.nvim_set_keymap( 'n', "<leader>lD", ":lua vim.lsp.buf.declaration()<cr>", {noremap = true} )
+
 local lsp_installer = require("nvim-lsp-installer")
 
 -- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished

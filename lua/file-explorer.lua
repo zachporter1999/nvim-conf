@@ -15,19 +15,15 @@ wk.register({
 	f = {
 		-- File navigation
 		name = "Open File",
-		n = {"New Buffer (Nvim Tree)"},
-		j = {"New Split Down (Nvim Tree)"},
-		k = {"New Split Up (Nvim Tree)"},
-		h = {"New Vsplit Left (Nvim Tree)"},
-		l = {"New Vsplit Right (Nvim Tree)"},
-		t = {"New Tab (Nvim Tree)"},
+		N = {"New Buffer (Nvim Tree)"},
+		T = {"New Tab (Nvim Tree)"},
 
-		N = {"New Buffer (Telescope)"},
-		J = {"New Split Down (Telescope)"},
-		K = {"New Split Up (Telescope)"},
-		H = {"New Vsplit Left (Telescope)"},
-		L = {"New Vsplit Right (Telescope)"},
-		T = {"New Tab (Telescope)"},
+		n = {"New Buffer (Telescope)"},
+		j = {"New Split Down (Telescope)"},
+		k = {"New Split Up (Telescope)"},
+		h = {"New Vsplit Left (Telescope)"},
+		l = {"New Vsplit Right (Telescope)"},
+		t = {"New Tab (Telescope)"},
 
 		g = {"Lve Grep"},
 	},
@@ -41,23 +37,18 @@ wk.register({
 		l = {"Split right and open existing buffer"},
 		t = {"Open buffer in new tab"},
 	},
+    g = {"Lve Grep"},
 }, { prefix = "<leader>"})
 
 require('nvim-tree').setup()
 
 -- ========================================
 -- File Explorer
---
--- Open new files in new buffer, split, tab, or vsplit using explorer
+-- Open new files using nvim tree
 -- ========================================
 
-vim.api.nvim_set_keymap( 'n', "<leader>fn",     ":NvimTreeToggle<cr>",          {noremap = true} )
-vim.api.nvim_set_keymap( 'n', "<leader>ft",     ":tabnew | NvimTreeToggle<cr>", {noremap = true} )
-
-vim.api.nvim_set_keymap( 'n', "<leader>fK",     ":set nosplitbelow  | split  | NvimTreeToggle<cr>", {noremap = true} )
-vim.api.nvim_set_keymap( 'n', "<leader>fJ",     ":set   splitbelow  | split  | NvimTreeToggle<cr>", {noremap = true} )
-vim.api.nvim_set_keymap( 'n', "<leader>fH",     ":set nosplitright  | vsplit | NvimTreeToggle<cr>", {noremap = true} )
-vim.api.nvim_set_keymap( 'n', "<leader>fL",     ":set   splitright  | vsplit | NvimTreeToggle<cr>", {noremap = true} )
+vim.api.nvim_set_keymap( 'n', "<leader>fN",     ":NvimTreeToggle<cr>",          {noremap = true} )
+vim.api.nvim_set_keymap( 'n', "<leader>fT",     ":tabnew | NvimTreeToggle<cr>", {noremap = true} )
 
 -- ========================================
 -- File Searcher
@@ -65,13 +56,13 @@ vim.api.nvim_set_keymap( 'n', "<leader>fL",     ":set   splitright  | vsplit | N
 -- Open new files in new buffer, split, tab, or vsplit using Telescope
 -- ========================================
 
-vim.api.nvim_set_keymap( 'n', "<leader>fN",     ":Telescope find_files<cr>",                              {noremap = true} )
-vim.api.nvim_set_keymap( 'n', "<leader>fT",     ":tabnew | Telescope find_files<cr> ",                    {noremap = true} )
+vim.api.nvim_set_keymap( 'n', "<leader>fn",     ":Telescope find_files<cr>",                              {noremap = true} )
+vim.api.nvim_set_keymap( 'n', "<leader>ft",     ":tabnew | Telescope find_files<cr> ",                    {noremap = true} )
 
-vim.api.nvim_set_keymap( 'n', "<leader>fK",     ":set nosplitbelow  | split  | Telescope find_files<cr>", {noremap = true} )
-vim.api.nvim_set_keymap( 'n', "<leader>fJ",     ":set   splitbelow  | split  | Telescope find_files<cr>", {noremap = true} )
-vim.api.nvim_set_keymap( 'n', "<leader>fH",     ":set nosplitright  | vsplit | Telescope find_files<cr>", {noremap = true} )
-vim.api.nvim_set_keymap( 'n', "<leader>fL",     ":set   splitright  | vsplit | Telescope find_files<cr>", {noremap = true} )
+vim.api.nvim_set_keymap( 'n', "<leader>fk",     ":set nosplitbelow  | split  | Telescope find_files<cr>", {noremap = true} )
+vim.api.nvim_set_keymap( 'n', "<leader>fj",     ":set   splitbelow  | split  | Telescope find_files<cr>", {noremap = true} )
+vim.api.nvim_set_keymap( 'n', "<leader>fh",     ":set nosplitright  | vsplit | Telescope find_files<cr>", {noremap = true} )
+vim.api.nvim_set_keymap( 'n', "<leader>fl",     ":set   splitright  | vsplit | Telescope find_files<cr>", {noremap = true} )
 
 -- ========================================
 -- Buffer Explorer
@@ -88,4 +79,4 @@ vim.api.nvim_set_keymap( 'n', "<leader>bt", ":tabnew | Telescope buffers<cr>",  
 -- Git tui tool
 -- ========================================
 
-vim.api.nvim_set_keymap( 'n', "<leader>fg", ":Telescope live_grep<cr>", {noremap = true} )
+vim.api.nvim_set_keymap( 'n', "<leader>g", ":Telescope live_grep<cr>", {noremap = true} )
