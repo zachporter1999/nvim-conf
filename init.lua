@@ -30,12 +30,10 @@ function packer_plugins()
     use 'wbthomason/packer.nvim'
 
     use 'mhinz/vim-startify'
-    use 'marko-cerovac/material.nvim'
     use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+	    'nvim-lualine/lualine.nvim',
+	    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
-
     use 'vimwiki/vimwiki'
 
     use 'neovim/nvim-lspconfig'
@@ -52,9 +50,15 @@ function packer_plugins()
     use 'aklt/plantuml-syntax'
     use 'tyru/open-browser.vim'
 
+
     use {
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/plenary.nvim'}}
+    }
+    use {'nvim-treesitter/nvim-treesitter'}
+    use {'nvim-orgmode/orgmode', config = function()
+      require('orgmode').setup{}
+    end
     }
 
     use {
@@ -64,9 +68,8 @@ function packer_plugins()
         },
         -- tag = 'nightly' -- optional, updated every week. (see issue #1193)
     }
-
     use {
-        'folke/which-key.nvim',
+	'folke/which-key.nvim',
         config = function()
             require("which-key").setup {}
         end

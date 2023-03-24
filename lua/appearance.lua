@@ -18,15 +18,8 @@ require('lualine').setup({
     }
 })
 
-
-require('material').setup({
-    lualine_style = "stealth",
-})
-
-
---vim.g.material_style = "palenight"
---vim.cmd [[silent! colorscheme material]]
 vim.cmd [[silent! colorscheme default]]
+vim.o.background = "light"
 
 -- ========================================
 -- Formatting
