@@ -1,4 +1,4 @@
-""" Neovim Config
+""" Nvim Config
 
 " ========================================
 " Plugin Loading
@@ -25,7 +25,7 @@ call plug#begin()
         " --------------------------------
         "  Which Key
         " --------------------------------
-        Plug 'liuchengxu/vim-which-key'
+        Plug 'folke/which-key.nvim'
 call plug#end()
 
 " ========================================
@@ -61,22 +61,38 @@ let g:dotoo_todo_keyword_faces = [
                         \]
 
 " ========================================
-" Lua Line
+" Neovim Sprecific
 " ========================================
+if has('nvim')
 lua << EOF
-require('lualine').setup({
-        options = {
-                component_separators = '',
-                section_separators = '',
-                theme = "16color",
-        },
-        tabline = {
-                lualine_a = {'buffers'},
-                lualine_b = {},
-                lualine_c = {},
-                lualine_x = {},
-                lualine_y = {},
-                lualine_z = {'tabs'}
-        }
-})
+        -- -------------------------------
+        -- Lua Line
+        -- -------------------------------
+        require('lualine').setup({
+                options = {
+                        component_separators = '',
+                        section_separators = '',
+                        theme = "16color",
+                },
+                tabline = {
+                        lualine_a = {'buffers'},
+                        lualine_b = {},
+                        lualine_c = {},
+                        lualine_x = {},
+                        lualine_y = {},
+                        lualine_z = {'tabs'}
+                }
+        })
+
+        -- -------------------------------
+        -- Which Key
+        -- -------------------------------
+        vim.o.timeout = true
+        vim.o.timeoutlen = 300
+        require("which-key").setup({
+        -- your configuration comes here
+        })
 EOF
+endif
+
+nnoremap <leader>c :e $HOME/.config/nvim/init.vim

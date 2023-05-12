@@ -93,14 +93,10 @@ require('lualine').setup({
 --[[
         Formatting
 --]]
-vim.o.tabstop           = 8
-vim.o.shiftwidth        = 8
-vim.o.autoindent        = true
 vim.o.expandtab         = true
 vim.o.number            = true
 vim.o.relativenumber    = true
 vim.o.list              = true
-vim.o.wrap              = false
 
 --[[
         DoToo
@@ -133,4 +129,4 @@ wk.register({
         c = { "Open Config" }
 }, { prefix = "<leader>"})
 
-vim.api.nvim_set_keymap( "n", "<leader>c", ":e "..vim.cmd[[ call stdpath("config") ]].."init.lua<cr>", { noremap = true } )
+--vim.api.nvim_set_keymap( "n", "<leader>c", ":e "..vim.cmd[[ call stdpath("config") ]].."init.lua<cr>", { noremap = true } )
