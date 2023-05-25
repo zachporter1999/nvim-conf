@@ -26,6 +26,12 @@ call plug#begin()
         "  Which Key
         " --------------------------------
         Plug 'folke/which-key.nvim'
+
+
+        " --------------------------------
+        "  Neogit
+        " --------------------------------
+        Plug 'TimUntersberger/neogit'
 call plug#end()
 
 " ========================================
@@ -33,12 +39,21 @@ call plug#end()
 " ========================================
 let g:mapleader=';'
 
-set background=dark
+let s:theme = getenv("THEME")
+
+if s:theme == v:null
+        let s:theme = 'dark'
+endif
+
+let &background = s:theme
 set expandtab
 set number
 set relativenumber
 set list
 set nowrap
+set laststatus=2
+set showtabline=2
+set mouse="" " default: nvi (normal, visual, insert)
 
 " ========================================
 " Dotoo
