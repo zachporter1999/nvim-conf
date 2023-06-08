@@ -4,4 +4,7 @@ highlight TablineFill   cterm=none      gui=none
 highlight TablineSel    cterm=bold      gui=bold
 highlight Tabline       cterm=underline gui=underline ctermbg=black guibg=black
 
+highlight CursorColumn                                ctermbg=black
+highlight CursorLine    cterm=none                    ctermbg=black
+highlight CursorLineNr  cterm=none                    ctermbg=black
 highlight LineNr        ctermfg=darkgrey guifg=darkgrey

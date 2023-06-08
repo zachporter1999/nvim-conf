@@ -54,7 +54,9 @@ set noexpandtab
 set number
 set relativenumber
 set nowrap
-set laststatus=1
+set cursorline
+set cursorcolumn
+set laststatus=3
 set showtabline=2
 set mouse="" " default: nvi (normal, visual, insert)
 
