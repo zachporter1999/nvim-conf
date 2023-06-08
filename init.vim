@@ -53,9 +53,8 @@ let &background = s:theme
 set noexpandtab
 set number
 set relativenumber
-set list
 set nowrap
-set laststatus=3
+set laststatus=1
 set showtabline=2
 set mouse="" " default: nvi (normal, visual, insert)
 
