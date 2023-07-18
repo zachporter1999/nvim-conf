@@ -50,17 +50,18 @@ if s:theme == v:null
 endif
 
 let &background = s:theme
-set noexpandtab
+set expandtab
 set number
 set relativenumber
 set nowrap
-set cursorline
-set cursorcolumn
-set laststatus=3
+set nocursorline
+set nocursorcolumn
+set notermguicolors
+set laststatus=2
 set showtabline=2
 set mouse="" " default: nvi (normal, visual, insert)
 
-colorscheme custom
+colorscheme default
 
 " ========================================
 " Dotoo
@@ -89,20 +90,32 @@ let g:dotoo#parser#todo_keywords = [
                         \ 'DONE'
                         \]
 
-let g:dotoo_todo_keyword_faces = [
-                        \ [ 'TODO',     [ ':foreground black', ':background red',     ':weight bold' ]],
-                        \ ['IN_PROG',   [ ':foreground black', ':background yellow',  ':weight bold' ]],
-                        \ ['REVIEW',    [ ':foreground black', ':background yellow',                 ]],
-                        \ ['WAITING',   [ ':foreground black', ':background blue',    ':weight bold' ]],
-                        \ ['EXTRA',     [ ':foreground black', ':background cyan',    ':weight bold' ]],
-                        \ ['MEETING',   [ ':foreground black', ':background magenta', ':weight bold' ]],
-                        \ ['CANCELLED', [ ':foreground black', ':background grey',    ':weight bold' ]],
-                        \ ['DONE',      [ ':foreground black', ':background green',   ':weight bold' ]]
-                        \]
+" let g:dotoo_todo_keyword_faces = [
+"                         \ [ 'TODO',     [ ':foreground black', ':background red',     ':weight bold' ]],
+"                         \ ['IN_PROG',   [ ':foreground black', ':background yellow',  ':weight bold' ]],
+"                         \ ['REVIEW',    [ ':foreground black', ':background yellow',                 ]],
+"                         \ ['WAITING',   [ ':foreground black', ':background blue',    ':weight bold' ]],
+"                         \ ['EXTRA',     [ ':foreground black', ':background cyan',    ':weight bold' ]],
+"                         \ ['MEETING',   [ ':foreground black', ':background magenta', ':weight bold' ]],
+"                         \ ['CANCELLED', [ ':foreground black', ':background grey',    ':weight bold' ]],
+"                         \ ['DONE',      [ ':foreground black', ':background green',   ':weight bold' ]]
+"                         \]
 
-execute 'nnoremap <leader>c :e '      . stdpath('config') . '/init.vim<cr>'
-execute 'nnoremap <leader>s :source ' . stdpath('config') . '/init.vim<cr>'
+if has('nvim')
+        " Better terminal navigation
+        tnoremap <C-w> <C-\><C-n><C-w>
+        execute 'nnoremap <leader>c :e '      . stdpath('config') . '/init.vim<cr>'
+        execute 'nnoremap <leader>s :source ' . stdpath('config') . '/init.vim<cr>'
+else
+        execute 'nnoremap <leader>c :e       $HOME/.vimrc<cr>'
+        execute 'nnoremap <leader>s :source  $HOME/.vimrc<cr>'
+endif
 
+function SVNDiff(JI)
+        let l:diff_file=JI . ".diff"
+        call system("svn diff > " . diff_file)
+        execute "vs " . diff_file
+endfunction
 
 command Tig term tig
 
