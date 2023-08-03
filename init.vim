@@ -5,21 +5,13 @@
 " ========================================
 call plug#begin()
         " --------------------------------
-        "  Status Bar
-        " --------------------------------
-        "Plug 'nvim-lualine/lualine.nvim'
-        "Plug 'kyazdani42/nvim-web-devicons'
-        Plug 'nvim-tree/nvim-tree.lua'
-
-        " --------------------------------
         "  Note Taking
         " --------------------------------
         Plug 'nvim-treesitter/nvim-treesitter'
         Plug 'nvim-orgmode/orgmode'
-        Plug 'dhruvasagar/vim-dotoo'
-        Plug 'junegunn/goyo.vim'
-        Plug 'sotte/presenting.vim'
-        Plug 'blindFS/vim-taskwarrior'
+        " TODO Move to this maybe?
+        " Plug 'nvim-neorg/neorg'
+        Plug 'nvim-lua/plenary.nvim'
 
         " --------------------------------
         "  Plantuml
@@ -57,49 +49,11 @@ set nowrap
 set nocursorline
 set nocursorcolumn
 set notermguicolors
-set laststatus=2
-set showtabline=2
+set laststatus=1
+set showtabline=1
 set mouse="" " default: nvi (normal, visual, insert)
 
 colorscheme default
-
-" ========================================
-" Dotoo
-" ========================================
-let g:dotoo_begin_src_languages=[
-                        \ "c",
-                        \ "rust",
-                        \ "vim",
-                        \ "bash",
-                        \ "python"
-                        \]
-
-let g:dotoo#agenda#files=[
-                        \ "~/dotoo/*.dotoo"
-                        \]
-
-let g:dotoo#parser#todo_keywords = [
-                        \ 'TODO',
-                        \ 'IN_PROG',
-                        \ 'REVIEW',
-                        \ 'WAITING',
-                        \ 'EXTRA',
-                        \ 'MEETING',
-                        \ '|',
-                        \ 'CANCELLED',
-                        \ 'DONE'
-                        \]
-
-" let g:dotoo_todo_keyword_faces = [
-"                         \ [ 'TODO',     [ ':foreground black', ':background red',     ':weight bold' ]],
-"                         \ ['IN_PROG',   [ ':foreground black', ':background yellow',  ':weight bold' ]],
-"                         \ ['REVIEW',    [ ':foreground black', ':background yellow',                 ]],
-"                         \ ['WAITING',   [ ':foreground black', ':background blue',    ':weight bold' ]],
-"                         \ ['EXTRA',     [ ':foreground black', ':background cyan',    ':weight bold' ]],
-"                         \ ['MEETING',   [ ':foreground black', ':background magenta', ':weight bold' ]],
-"                         \ ['CANCELLED', [ ':foreground black', ':background grey',    ':weight bold' ]],
-"                         \ ['DONE',      [ ':foreground black', ':background green',   ':weight bold' ]]
-"                         \]
 
 if has('nvim')
         " Better terminal navigation
@@ -110,6 +64,13 @@ else
         execute 'nnoremap <leader>c :e       $HOME/.vimrc<cr>'
         execute 'nnoremap <leader>s :source  $HOME/.vimrc<cr>'
 endif
+
+function SplitTerm()
+        vsplit
+        terminal
+        set insertmode
+endfunction
+nnoremap <C-w>t :call SplitTerm()<cr>
 
 function SVNDiff(JI)
         let l:diff_file=JI . ".diff"
@@ -154,18 +115,65 @@ lua << EOF
         -- your configuration comes here
         })
 
-        require('nvim-tree').setup({
-                sort_by = "case_sensitive",
-                view = {
-                        width = 30,
+        --require('nvim-tree').setup({
+        --        sort_by = "case_sensitive",
+        --        view = {
+        --                width = 30,
+        --        },
+        --        renderer = {
+        --                group_empty = true,
+        --        },
+        --        filters = {
+        --                dotfiles = true,
+        --        },
+        --})
+
+        -- Load custom treesitter grammar for org filetype
+        require('orgmode').setup_ts_grammar()
+
+        -- Treesitter configuration
+        require('nvim-treesitter.configs').setup {
+                -- If TS highlights are not enabled at all, or disabled via `disable` prop,
+                -- highlighting will fallback to default Vim syntax highlighting
+                highlight = {
+                        enable = true,
+                        -- Required for spellcheck, some LaTex highlights and
+                        -- code block highlights that do not have ts grammar
+                        additional_vim_regex_highlighting = {'org'},
                 },
-                renderer = {
-                        group_empty = true,
+                ensure_installed = {'org'}, -- Or run :TSUpdate org
+        }
+
+        require('orgmode').setup({
+                org_agenda_files = {'~/org/*'},
+                org_default_notes_file = '~/org/refile.org',
+                org_todo_keywords = {
+                        'TODO',
+                        'INPROG',
+                        '|',
+                        'DONE',
+                        'CLOSED',
                 },
-                filters = {
-                        dotfiles = true,
-                },
+                org_todo_keyword_faces = {
+                        TODO	= ':foreground red',
+                        INPROG	= ':foreground yellow',
+                        DONE	= ':foreground green',
+                        CLOSED	= ':foreground grey',
+                }
         })
+        -- require('neorg').setup {
+        --     load = {
+        --         ["core.defaults"] = {}, -- Loads default behaviour
+        --         ["core.concealer"] = {}, -- Adds pretty icons to your documents
+        --         ["core.dirman"] = { -- Manages Neorg workspaces
+        --             config = {
+        --                 workspaces = {
+        --                     notes = "~/notes",
+        --                 },
+        --             },
+        --         },
+        --     },
+        -- }
 EOF
 endif
 
