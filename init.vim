@@ -11,7 +11,8 @@ call plug#begin()
         Plug 'vimwiki/vimwiki'
 
         " TODO Posibly for better syntax
-        "Plug 'nvim-treesitter/nvim-treesitter'
+        Plug 'nvim-treesitter/nvim-treesitter'
+        Plug 'overcache/NeoSolarized'
 
         " --------------------------------
         "  Plantuml
@@ -33,19 +34,22 @@ call plug#end()
 " ========================================
 let g:mapleader=';'
 
-set background=dark
 set expandtab
 set number
 set relativenumber
 set nowrap
-set nocursorline
-set nocursorcolumn
-set notermguicolors
 set laststatus=1
-set showtabline=1
 set mouse="" " default: nvi (normal, visual, insert)
 
-colorscheme default
+" colorscheme lunaperche
+
+let g:neosolarized_contrast="high"
+let g:neosolarized_visibility="high"
+let g:neosolarized_bold=1
+let g:neosolarized_underline=1
+let g:neosolarized_italic=1
+let g:neosolarized_termBoldAsBright=1
+colorscheme NeoSolarized
 
 if has('nvim')
         " Better terminal navigation
@@ -78,17 +82,31 @@ lua << EOF
         -- -------------------------------
         -- Treesitter configuration
         -- -------------------------------
-        -- require('nvim-treesitter.configs').setup {
-        --         -- If TS highlights are not enabled at all, or disabled via `disable` prop,
-        --         -- highlighting will fallback to default Vim syntax highlighting
-        --         highlight = {
-        --                 enable = true,
-        --                 -- Required for spellcheck, some LaTex highlights and
-        --                 -- code block highlights that do not have ts grammar
-        --                 additional_vim_regex_highlighting = {'org', 'markdown'},
-        --         },
-        --         ensure_installed = {'org', 'markdown'}, -- Or run :TSUpdate org
-        -- }
+        require('nvim-treesitter.configs').setup {
+                -- If TS highlights are not enabled at all, or disabled via `disable` prop,
+                -- highlighting will fallback to default Vim syntax highlighting
+                highlight = {
+                        enable = true,
+                        -- Required for spellcheck, some LaTex highlights and
+                        -- code block highlights that do not have ts grammar
+                        additional_vim_regex_highlighting = {
+                                'markdown',
+                                'vimdoc',
+                                'groovy',
+                                'c',
+                                'python',
+                                'bash',
+                        },
+                },
+                ensure_installed = {
+                        'markdown',
+                        'vimdoc',
+                        'groovy',
+                        'c',
+                        'python',
+                        'bash',
+                }, -- Or run :TSUpdate org
+        }
 
 EOF
 endif
