@@ -46,7 +46,7 @@ let g:my_treesitter_languages=[
                         \ ]
 
 " ========================================
-" Appearance
+" Native Settings
 " ========================================
 let g:mapleader=';'
 
@@ -62,8 +62,21 @@ set timeout
 set timeoutlen=300
 
 " ========================================
-" NeoSolarized
+" Plugin Loading
 " ========================================
+call plug#begin()
+        for plugin in g:my_plugin_list
+                Plug plugin
+        endfor
+call plug#end()
+
+
+" ========================================
+" Plugin Settings
+" ========================================
+" ----------------------------------------
+" NeoSolarized
+" ----------------------------------------
 let g:neosolarized_contrast="high"
 let g:neosolarized_visibility="high"
 let g:neosolarized_bold=1
@@ -72,9 +85,9 @@ let g:neosolarized_italic=1
 let g:neosolarized_termBoldAsBright=1
 colorscheme NeoSolarized
 
-" ========================================
+" ----------------------------------------
 " Vimwiki
-" ========================================
+" ----------------------------------------
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 " ========================================
@@ -141,13 +154,4 @@ if has('nvim')
 
 EOF
 endif
-
-" ========================================
-" Plugin Loading
-" ========================================
-call plug#begin()
-        for plugin in g:my_plugin_list
-                Plug plugin
-        endfor
-call plug#end()
 
