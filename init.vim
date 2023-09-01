@@ -1,41 +1,24 @@
 """ Nvim Config
 
 " ========================================
-" Plugin Loading
+" Plugins
 " ========================================
-call plug#begin()
-        " --------------------------------
-        "  Appearance
-        " --------------------------------
-        Plug 'overcache/NeoSolarized'
-        Plug 'nvim-treesitter/nvim-treesitter'
-
-        " --------------------------------
-        "  Note Taking
-        " --------------------------------
-        Plug 'vim-pandoc/vim-pandoc'
-        Plug 'vimwiki/vimwiki'
-
-        " --------------------------------
-        "  General Utils
-        " --------------------------------
-        Plug 'nvim-lua/plenary.nvim'
-        Plug 'nvim-telescope/telescope.nvim'
-
-        " --------------------------------
-        "  Plantuml
-        " --------------------------------
-        Plug 'weirongxu/plantuml-previewer.vim'
-        Plug 'aklt/plantuml-syntax'
-        Plug 'tyru/open-browser.vim'
-
-        " --------------------------------
-        "  Which Key
-        " --------------------------------
-        Plug 'folke/which-key.nvim'
-
-call plug#end()
-
+let g:my_plugin_list=[
+                        \ 'overcache/NeoSolarized',
+                        \ 'nvim-treesitter/nvim-treesitter',
+                        \
+                        \ 'vim-pandoc/vim-pandoc',
+                        \ 'vimwiki/vimwiki',
+                        \
+                        \ 'nvim-lua/plenary.nvim',
+                        \ 'nvim-telescope/telescope.nvim',
+                        \
+                        \ 'weirongxu/plantuml-previewer.vim',
+                        \ 'aklt/plantuml-syntax',
+                        \ 'tyru/open-browser.vim',
+                        \
+                        \ 'folke/which-key.nvim',
+                        \]
 " ========================================
 " Treesitter
 " ========================================
@@ -158,4 +141,13 @@ if has('nvim')
 
 EOF
 endif
+
+" ========================================
+" Plugin Loading
+" ========================================
+call plug#begin()
+        for plugin in g:my_plugin_list
+                Plug plugin
+        endfor
+call plug#end()
 
