@@ -8,6 +8,7 @@ call plug#begin()
         "  Appearance
         " --------------------------------
         Plug 'overcache/NeoSolarized'
+        Plug 'nvim-treesitter/nvim-treesitter'
 
         " --------------------------------
         "  Note Taking
@@ -15,8 +16,11 @@ call plug#begin()
         Plug 'vim-pandoc/vim-pandoc'
         Plug 'vimwiki/vimwiki'
 
-        " TODO Posibly for better syntax
-        Plug 'nvim-treesitter/nvim-treesitter'
+        " --------------------------------
+        "  General Utils
+        " --------------------------------
+        Plug 'nvim-lua/plenary.nvim'
+        Plug 'nvim-telescope/telescope.nvim'
 
         " --------------------------------
         "  Plantuml
@@ -74,8 +78,6 @@ set mouse="" " default: nvi (normal, visual, insert)
 set timeout
 set timeoutlen=300
 
-" colorscheme lunaperche
-
 " ========================================
 " NeoSolarized
 " ========================================
@@ -107,6 +109,8 @@ endif
 " Custom Commands
 " ========================================
 command Tig term tig
+nnoremap <leader>tv :vsplit <Bar> Tig<cr>i
+nnoremap <leader>ts :split  <Bar> Tig<cr>i
 
 " ========================================
 " Neovim Sprecific
@@ -116,19 +120,23 @@ if has('nvim')
         tnoremap <C-w> <C-\><C-n><C-w>
 
         lua << EOF
-        local wk     = require('which-key')
-        local ts_cfg = require('nvim-treesitter.configs')
+        local which_key      = require('which-key')
+        local treesitter_cfg = require('nvim-treesitter.configs')
+        local telescope      = require('telescope')
 
         -- -------------------------------
         -- Which Key
         -- -------------------------------
-        wk.setup({
+        which_key.setup({
                 window = {
+                        position = "top",
                         border = "double",
+                        margin = { 20, 50, 20, 50 },
+                        winblend = 100,
                 },
         })
 
-        wk.register({
+        which_key.register({
                 c = "Edit Config",
                 s = "Source Config",
         }, { prefix = "<leader>" })
@@ -136,12 +144,16 @@ if has('nvim')
         -- -------------------------------
         -- Treesitter configuration
         -- -------------------------------
-        ts_cfg.setup {
+        treesitter_cfg.setup {
                 highlight = {
                         enable = true,
                         additional_vim_regex_highlighting = vim.g.my_treesitter_languages,
                 },
                 ensure_installed = vim.g.my_treesitter_languages,
+        }
+
+        telescope.setup {
+
         }
 
 EOF
